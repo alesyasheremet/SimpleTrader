@@ -23,7 +23,10 @@ namespace SimpleTrader.FinancialModelingPrepAPI.Services
         {
             string uri = "stock/real-time-price/" + symbol;
 
-            StockPriceResult stockPriceResult = await _client.GetAsync<StockPriceResult>(uri);
+            StockPriceResult stockPriceResult = new StockPriceResult()
+            {
+                Price = 22
+            };// await _client.GetAsync<StockPriceResult>(uri);
 
             if(stockPriceResult.Price == 0)
             {

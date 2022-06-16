@@ -22,7 +22,14 @@ namespace SimpleTrader.FinancialModelingPrepAPI.Services
         {
             string uri = "majors-indexes/" + GetUriSuffix(indexType);
 
-            MajorIndex majorIndex = await _client.GetAsync<MajorIndex>(uri);
+            MajorIndex majorIndex = new MajorIndex()
+            {
+                Changes = 20,
+                IndexName = "IXIC",
+                Price = 60,
+                Type = MajorIndexType.Nasdaq
+
+            };//await _client.GetAsync<MajorIndex>(uri);
             majorIndex.Type = indexType;
 
             return majorIndex;
